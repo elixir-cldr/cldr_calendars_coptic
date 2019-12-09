@@ -1,16 +1,6 @@
 defmodule Cldr.Calendar.Coptic do
   @moduledoc """
-  The present Iranian calendar was legally adopted on 31
-  March 1925, under the early Pahlavi dynasty. The law
-  said that the first day of the year should be the
-  first day of spring in "the true solar year", "as it
-  has been" ever so. It also fixes the number of days
-  in each month, which previously varied by year with
-  the sidereal zodiac.
-
-  It revived the ancient Coptic names, which are still
-  used. It specifies the origin of the calendar to be
-  the Hegira of Muhammad from Mecca to Medina in 622 CE).
+  Implementation of the Coptic calendar.
 
   """
   import Cldr.Math, only: [mod: 2]
