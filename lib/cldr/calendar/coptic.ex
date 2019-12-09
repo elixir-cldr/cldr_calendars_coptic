@@ -23,7 +23,6 @@ defmodule Cldr.Calendar.Coptic do
   @type day :: 1..31
 
   @months_in_year 13
-  @months_in_quarter 3
   @days_in_week 7
 
   @doc """
@@ -295,11 +294,6 @@ defmodule Cldr.Calendar.Coptic do
   """
   @impl true
   def plus(year, month, day, date_part, increment, options \\ [])
-
-  def plus(year, month, day, :quarters, quarters, options) do
-    months = quarters * @months_in_quarter
-    plus(year, month, day, :months, months, options)
-  end
 
   def plus(year, month, day, :months, months, options) do
     months_in_year = months_in_year(year)
