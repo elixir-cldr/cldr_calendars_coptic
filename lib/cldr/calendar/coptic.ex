@@ -22,8 +22,7 @@ defmodule Cldr.Calendar.Coptic do
   @type month :: 1..12
   @type day :: 1..31
 
-  @quarters_in_year 4
-  @months_in_year 12
+  @months_in_year 13
   @months_in_quarter 3
   @days_in_week 7
 
@@ -58,21 +57,16 @@ defmodule Cldr.Calendar.Coptic do
 
   """
   @impl true
-  @months_with_30_days 7..11
+  @months_with_30_days 1..12
   def valid_date?(_year, month, day) when month in @months_with_30_days and day in 1..30 do
     true
   end
 
-  @months_with_31_days 1..6
-  def valid_date?(_year, month, day) when month in @months_with_31_days and day in 1..31 do
-    true
-  end
-
-  def valid_date?(year, 12, 30) do
+  def valid_date?(year, 13, 6) do
     if leap_year?(year), do: true, else: false
   end
 
-  def valid_date?(_year, 12, day) when day in 1..29 do
+  def valid_date?(_year, 13, day) when day in 1..5 do
     true
   end
 
@@ -105,9 +99,8 @@ defmodule Cldr.Calendar.Coptic do
   """
   @spec quarter_of_year(year, month, day) :: 1..4
   @impl true
-  def quarter_of_year(_year, month, _day) do
-    Float.ceil(month / @months_in_quarter)
-    |> trunc
+  def quarter_of_year(_year, _month, _day) do
+    {:error, :not_defined}
   end
 
   @doc """
@@ -224,16 +217,12 @@ defmodule Cldr.Calendar.Coptic do
   @spec days_in_month(year, month) :: 29..31
   @impl true
 
-  def days_in_month(year, 12) do
-    if leap_year?(year), do: 30, else: 29
+  def days_in_month(year, 13) do
+    if leap_year?(year), do: 6, else: 5
   end
 
   def days_in_month(_year, month) when month in @months_with_30_days do
     30
-  end
-
-  def days_in_month(_year, month) when month in @months_with_31_days do
-    31
   end
 
   @doc """
@@ -266,18 +255,8 @@ defmodule Cldr.Calendar.Coptic do
 
   """
   @impl true
-  def quarter(year, quarter) do
-    months_in_quarter = div(months_in_year(year), @quarters_in_year)
-    starting_month = months_in_quarter * (quarter - 1) + 1
-    starting_day = 1
-
-    ending_month = starting_month + months_in_quarter - 1
-    ending_day = days_in_month(year, ending_month)
-
-    with {:ok, start_date} <- Date.new(year, starting_month, starting_day, __MODULE__),
-         {:ok, end_date} <- Date.new(year, ending_month, ending_day, __MODULE__) do
-      Date.range(start_date, end_date)
-    end
+  def quarter(_year, _quarter) do
+    {:error, :not_defined}
   end
 
   @doc """
