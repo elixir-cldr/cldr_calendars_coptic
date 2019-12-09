@@ -1,4 +1,4 @@
-defmodule Cldr.Calendar.Persian do
+defmodule Cldr.Calendar.Coptic do
   @moduledoc """
   The present Iranian calendar was legally adopted on 31
   March 1925, under the early Pahlavi dynasty. The law
@@ -8,11 +8,13 @@ defmodule Cldr.Calendar.Persian do
   in each month, which previously varied by year with
   the sidereal zodiac.
 
-  It revived the ancient Persian names, which are still
+  It revived the ancient Coptic names, which are still
   used. It specifies the origin of the calendar to be
   the Hegira of Muhammad from Mecca to Medina in 622 CE).
 
   """
+  import Cldr.Math, only: [mod: 2]
+
   @behaviour Calendar
   @behaviour Cldr.Calendar
 
@@ -25,8 +27,6 @@ defmodule Cldr.Calendar.Persian do
   @months_in_quarter 3
   @days_in_week 7
 
-  @mean_tropical_year 365.24219
-
   @doc """
   Defines the CLDR calendar type for this calendar.
 
@@ -36,7 +36,7 @@ defmodule Cldr.Calendar.Persian do
   """
   @impl true
   def cldr_calendar_type do
-    :persian
+    :coptic
   end
 
   @doc """
@@ -47,7 +47,7 @@ defmodule Cldr.Calendar.Persian do
     :month
   end
 
-  @epoch Cldr.Calendar.Julian.date_to_iso_days(622, 3, 19)
+  @epoch Cldr.Calendar.Julian.date_to_iso_days(284, 8, 29)
   def epoch do
     @epoch
   end
@@ -350,45 +350,7 @@ defmodule Cldr.Calendar.Persian do
   @spec leap_year?(year) :: boolean()
   @impl true
   def leap_year?(year) do
-    new_year = date_to_iso_days(year, 1, 1)
-    next_year = date_to_iso_days(year + 1, 1, 1)
-    next_year - new_year == 366
-  end
-
-  @doc """
-  Returns the Gregorian date of the
-  Persian new year for a given
-  Gregorian year
-  """
-  def new_year_gregorian(year) do
-    {:ok, equinox} = vernal_equinox(year)
-    {:ok, solar_noon} = midday_in_tehran(equinox)
-
-    if Time.compare(equinox, solar_noon) in [:gt, :eq] do
-      Date.new(equinox.year, equinox.month, equinox.day + 1)
-    else
-      Date.new(equinox.year, equinox.month, equinox.day)
-    end
-  end
-
-  @doc """
-  Returns the Gregorian date of the
-  Persian last day of a given
-  Gregorian year
-  """
-  def year_end_gregorian(year) do
-    {:ok, new_year} = new_year_gregorian(year + 1)
-    {:ok, Date.add(new_year, -1)}
-  end
-
-  @tehran %Geo.PointZ{coordinates: {51.3890, 35.6892, 1100}}
-
-  defp midday_in_tehran(date) do
-    Astro.solar_noon(@tehran, date)
-  end
-
-  defp vernal_equinox(year) do
-    Astro.equinox(year, :march)
+    mod(year, 4) == 3
   end
 
   @doc """
@@ -397,10 +359,8 @@ defmodule Cldr.Calendar.Persian do
 
   """
   def date_to_iso_days(year, month, day) do
-    new_year =
-      new_year_on_or_before(epoch() + 180 +
-        :math.floor(@mean_tropical_year * if(0 < year, do: year - 1, else: year)) |> trunc)
-    new_year - 1 + if(month <= 7, do: 31 * (month - 1), else: 30 * (month - 1) + 6) + day
+    epoch() - 1 + 365 * (year - 1) + :math.floor(year / 4) + 30 * (month - 1) + day
+    |> trunc
   end
 
   @doc """
@@ -409,32 +369,13 @@ defmodule Cldr.Calendar.Persian do
 
   """
   def date_from_iso_days(iso_days) do
-    new_year_iso_days = new_year_on_or_before(iso_days)
-    y = round((new_year_iso_days - epoch()) / @mean_tropical_year) + 1
-    year = if y > 0, do: y, else: y - 1
-    day_of_year = 1 + iso_days - date_to_iso_days(year, 1, 1)
+    year = :math.floor((4 * (iso_days - epoch()) + 1463) / 1461)
+    month = :math.floor((iso_days - date_to_iso_days(year, 1, 1)) / 30) + 1
+    day = iso_days + 1 - date_to_iso_days(year, month, 1)
 
-    month = if day_of_year <= 186, do: ceil(day_of_year / 31),
-             else: :math.ceil((day_of_year - 6) / 30)
-
-    day = iso_days - date_to_iso_days(year, month, 1) + 1
-    {year, trunc(month), trunc(day)}
+    {trunc(year), trunc(month), trunc(day)}
   end
 
-  def new_year_on_or_before(iso_days) when is_integer(iso_days) do
-    {year, month, day} = Cldr.Calendar.Gregorian.date_from_iso_days(iso_days)
-    {:ok, date} = Date.new(year, month, day)
-    {:ok, new_year_gregorian} = new_year_gregorian(year)
-    {:ok, prior_year_gregorian} = new_year_gregorian(year - 1)
-
-    new_year =
-      if Date.compare(new_year_gregorian, date) == :gt do
-        prior_year_gregorian
-      else
-        new_year_gregorian
-      end
-    Cldr.Calendar.Gregorian.date_to_iso_days(new_year.year, new_year.month, new_year.day)
-  end
 
   @doc """
   Returns the `t:Calendar.iso_days/0` format of the specified date.

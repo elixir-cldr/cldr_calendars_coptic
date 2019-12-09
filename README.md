@@ -1,48 +1,46 @@
-# Persian (Solar Hijri) Calendar
+# Coptic Calendar
 
-This library implements the Solar Hijri calendar that is used in Iran and Afghanistan.
+This library implements the Coptic calendar.
 
-From [wikipedia](https://en.wikipedia.org/wiki/Solar_Hijri_calendar):
+From [wikipedia](https://en.wikipedia.org/wiki/Coptic_calendar):
 
-The Solar Hijri calendar (Persian: گاه‌شماری هجری خورشیدی‎, romanized: gāh-shomāri-ye hejri-ye khorshidi; Pashto: لمريز لېږدیز کلیز‎), also called the Solar Hejri calendar or Shamsi Hijri calendar, and abbreviated as SH, is the official calendar of Iran and Afghanistan. It begins on the March equinox (Nowruz) as determined by astronomical calculation for the Iran Standard Time meridian (52.5°E, UTC+03:30) and has years of 365 or 366 days.
+The Coptic calendar, also called the Alexandrian calendar, is a liturgical calendar used by the Coptic Orthodox Church and also used by the farming populace in Egypt. This calendar is based on the ancient Egyptian calendar. To avoid the calendar creep of the latter, a reform of the ancient Egyptian calendar was introduced at the time of Ptolemy III (Decree of Canopus, in 238 BC) which consisted of the intercalation of a sixth epagomenal day every fourth year. However, this reform was opposed by the Egyptian priests, and the reform was not adopted until 25 BC, when the Roman Emperor Augustus imposed the Decree upon Egypt as its official calendar (although it was unsynchronized with the newly introduced Julian calendar which had erroneously been intercalating leap days every third year due to a misinterpration of the leap year rule so as to apply inclusive counting).
 
-Its determination of the start of each year is astronomically accurate year-to-year as opposed to the more fixed Gregorian calendar or "Common Era calendar" which, averaged out, has the same year length, achieving the same accuracy (a more simply patterned calendar of 365 days for three consecutive years plus an extra day in the next year, save for exceptions to the latter in three out of every four centuries). The start of the year and its number of days remain fixed to one of the two equinoxes, the astronomically important days which have the same duration of day as night. It results in less variability of all celestial bodies when comparing a specific calendar date from one year to others.[2]
-
-Each of the twelve months corresponds with a zodiac sign. The first six months have 31 days, the next five have 30 days, and the last month has 29 days in usual years but 30 days in leap years. The New Year's Day always falls on the March equinox.
+To distinguish it from the Ancient Egyptian calendar, which remained in use by some astronomers until medieval times, this reformed calendar is known as the Coptic calendar. Its years and months coincide with those of the Ethiopian calendar but have different numbers and names.
 
 ## Usage
 
-[ex_cldr_calendars_persian](https://hex.pm/packages/ex_cldr_calenars_persian) conforms to both the `Calendar` and `Cldr.Calendar` behaviours and therefore the functions in the `Date`, `DateTime`, `NaiveDateTime`, `Time` and `Calendar` functions are supported.
+[ex_cldr_calendars_coptic](https://hex.pm/packages/ex_cldr_calenars_coptic) conforms to both the `Calendar` and `Cldr.Calendar` behaviours and therefore the functions in the `Date`, `DateTime`, `NaiveDateTime`, `Time` and `Calendar` functions are supported.
 
 For Elixir versions up to and including 1.9, a date can be created by:
 ```elixir
-iex> {:ok, date} = Date.new(1354, 1, 1, Cldr.Calendar.Persian)
-{:ok, ~D[1354-01-01 Cldr.Calendar.Persian]}
+iex> {:ok, date} = Date.new(1736, 3, 30, Cldr.Calendar.Coptic]
+{:ok, ~D[1736-03-30 Cldr.Calendar.Coptic]}
 ```
 For Elixir version 1.10 and later `Sigil_D` supports user-defined calendars:
 ```
-iex> ~D[1354-01-01 Cldr.Calendar.Persian]
-~D[1354-01-01 Cldr.Calendar.Persian]
+iex> ~D[1736-03-30 Cldr.Calendar.Coptic]
+~D[1736-03-30 Cldr.Calendar.Coptic]
 ```
 
 ## Localization
 
-`ex_cldr_calendars_persian` depends on [ex_cldr_calendars](https://hex.pm/packages/ex_cldr_calendars) which supports calendar localization. For full date and time formatting see [ex_cldr_dates_times](https://hex.pm/packages/ex_cldr_dates_times).
+`ex_cldr_calendars_coptic` depends on [ex_cldr_calendars](https://hex.pm/packages/ex_cldr_calendars) which supports calendar localization. For full date and time formatting see [ex_cldr_dates_times](https://hex.pm/packages/ex_cldr_dates_times).
 
 Basic localization is executed by the `Cldr.Calendar.localize/3`. For example:
 
 ```elixir
 iex> Cldr.Calendar.localize(date, :month, locale: "en")
-"Farvardin"
-
-iex> Cldr.Calendar.localize(date, :month, locale: "fa")
-"فروردین"
-
-iex> Cldr.Calendar.localize(date, :day_of_week, locale: "fa")
-"جمعه"
+"Hator"
 
 iex> Cldr.Calendar.localize(date, :day_of_week, locale: "en")
-"Fri"
+"Tue"
+
+iex> Cldr.Calendar.localize(date, :day_of_week, locale: "ar-EG")
+"الثلاثاء"
+
+iex> Cldr.Calendar.localize(date, :month, locale: "ar-EG")
+"هاتور"
 ```
 
 ## Relationship to other libraries
@@ -60,14 +58,14 @@ This library is part of the [CLDR](https://cldr.unicode.org)-based libraries for
 
 ## Installation
 
-The package can be installed by adding `cldr_calendars_persian` to your list of dependencies in `mix.exs`:
+The package can be installed by adding `cldr_calendars_coptic` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
   [
-    {:cldr_calendars_persian, "~> 0.1.0"}
+    {:cldr_calendars_coptic, "~> 0.1.0"}
   ]
 end
 ```
-Documentation can be found at [https://hexdocs.pm/cldr_calendars_persian](https://hexdocs.pm/cldr_calendars_persian).
+Documentation can be found at [https://hexdocs.pm/cldr_calendars_coptic](https://hexdocs.pm/cldr_calendars_coptic).
 

@@ -1,16 +1,16 @@
-defmodule Cldr.Calendars.Persian.MixProject do
+defmodule Cldr.Calendars.Coptic.MixProject do
   use Mix.Project
 
   @version "0.1.0"
 
   def project do
     [
-      app: :ex_cldr_calendars_persian,
+      app: :ex_cldr_calendars_coptic,
       version: @version,
       elixir: "~> 1.8",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-      source_url: "https://github.com/elixir-cldr/cldr_calendars_persian",
+      source_url: "https://github.com/elixir-cldr/cldr_calendars_coptic",
       description: description(),
       package: package(),
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -23,7 +23,7 @@ defmodule Cldr.Calendars.Persian.MixProject do
 
   def description do
     """
-    Implementation of the Persian Solar Hijri calendar for Elixir
+    Implementation of the Coptic calendar for Elixir
     """
   end
 
@@ -55,7 +55,6 @@ defmodule Cldr.Calendars.Persian.MixProject do
   defp deps do
     [
       {:ex_cldr_calendars, "~> 1.6"},
-      {:astro, "~> 0.3"},
       {:stream_data, "~> 0.4", only: :test},
       {:ex_doc, "~> 0.19", only: [:release, :dev]}
     ]
@@ -64,9 +63,9 @@ defmodule Cldr.Calendars.Persian.MixProject do
 
   def links do
     %{
-      "GitHub" => "https://github.com/elixir-cldr/cldr_calendars_persian",
-      "Readme" => "https://github.com/elixir-cldr/cldr_calendars_persian/blob/v#{@version}/README.md",
-      "Changelog" => "https://github.com/elixir-cldr/cldr_calendars_persian/blob/v#{@version}/CHANGELOG.md"
+      "GitHub" => "https://github.com/elixir-cldr/cldr_calendars_coptic",
+      "Readme" => "https://github.com/elixir-cldr/cldr_calendars_coptic/blob/v#{@version}/README.md",
+      "Changelog" => "https://github.com/elixir-cldr/cldr_calendars_coptic/blob/v#{@version}/CHANGELOG.md"
     }
   end
 
