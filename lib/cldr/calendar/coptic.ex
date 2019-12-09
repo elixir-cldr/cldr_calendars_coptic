@@ -288,8 +288,7 @@ defmodule Cldr.Calendar.Coptic do
   Adds an `increment` number of `date_part`s
   to a `year-month-day`.
 
-  `date_part` can be `:quarters`
-   or`:months`.
+  `date_part` can be `:months` only.
 
   """
   @impl true
