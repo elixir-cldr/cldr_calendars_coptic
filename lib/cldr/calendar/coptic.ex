@@ -195,7 +195,6 @@ defmodule Cldr.Calendar.Coptic do
     @months_in_year
   end
 
-
   @impl true
   def weeks_in_year(_year) do
     {:error, :not_defined}
