@@ -14,7 +14,7 @@ To distinguish it from the Ancient Egyptian calendar, which remained in use by s
 
 For Elixir versions up to and including 1.9, a date can be created by:
 ```elixir
-iex> {:ok, date} = Date.new(1736, 3, 30, Cldr.Calendar.Coptic]
+iex> {:ok, date} = Date.new(1736, 3, 30, Cldr.Calendar.Coptic)
 {:ok, ~D[1736-03-30 Cldr.Calendar.Coptic]}
 ```
 For Elixir version 1.10 and later `Sigil_D` supports user-defined calendars:
