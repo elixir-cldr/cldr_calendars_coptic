@@ -4,8 +4,6 @@ This is the changelog for ex_cldr_calendars_coptic v0.3.0 released on March 18th
 
 ### Bug Fixes
 
-* Require Elixir 1.10 or later
-
 * Update `Cldr.Calendar.Coptic.day_of_week/3` to be `Cldr.Calendar.Coptic.day_of_week/4` as required by Elixir 1.10.
 
 # Changelog for Cldr_Calendars_Coptic v0.2.0
