@@ -1,3 +1,13 @@
+# Changelog for Cldr_Calendars_Coptic v0.3.0
+
+This is the changelog for ex_cldr_calendars_coptic v0.3.0 released on March 18th, 2021.  For older changelogs please consult the release tag on [GitHub](https://github.com/elixir-cldr/cldr_calendars_ethiopic/tags)
+
+### Bug Fixes
+
+* Require Elixir 1.10 or later
+
+* Update `Cldr.Calendar.Coptic.day_of_week/3` to be `Cldr.Calendar.Coptic.day_of_week/4` as required by Elixir 1.10.
+
 # Changelog for Cldr_Calendars_Coptic v0.2.0
 
 This is the changelog for ex_cldr_calendars_coptic v0.2.0 released on July 3rd, 2020  For older changelogs please consult the release tag on [GitHub](https://github.com/elixir-cldr/cldr_calendars_coptic/tags)
