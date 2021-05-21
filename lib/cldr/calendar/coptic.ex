@@ -425,22 +425,28 @@ defmodule Cldr.Calendar.Coptic do
 
   if Version.match?(System.version(), ">= 1.10.0-dev") do
     @doc false
+    @impl Calendar
     defdelegate parse_time(string), to: Calendar.ISO
   end
 
   @doc false
+  @impl Calendar
   defdelegate day_rollover_relative_to_midnight_utc, to: Calendar.ISO
 
   @doc false
+  @impl Calendar
   defdelegate time_from_day_fraction(day_fraction), to: Calendar.ISO
 
   @doc false
+  @impl Calendar
   defdelegate time_to_day_fraction(hour, minute, second, microsecond), to: Calendar.ISO
 
   @doc false
+  @impl Calendar
   defdelegate date_to_string(year, month, day), to: Calendar.ISO
 
   @doc false
+  @impl Calendar
   defdelegate datetime_to_string(
                 year,
                 month,
@@ -457,6 +463,7 @@ defmodule Cldr.Calendar.Coptic do
               to: Calendar.ISO
 
   @doc false
+  @impl Calendar
   defdelegate naive_datetime_to_string(
                 year,
                 month,
@@ -469,8 +476,10 @@ defmodule Cldr.Calendar.Coptic do
               to: Calendar.ISO
 
   @doc false
+  @impl Calendar
   defdelegate time_to_string(hour, minute, second, microsecond), to: Calendar.ISO
 
   @doc false
+  @impl Calendar
   defdelegate valid_time?(hour, minute, second, microsecond), to: Calendar.ISO
 end
