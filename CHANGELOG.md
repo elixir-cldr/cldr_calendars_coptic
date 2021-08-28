@@ -2,7 +2,7 @@
 
 ## Cldr_Calendars_Coptic v0.4.0
 
-This is the changelog for ex_cldr_calendars_coptic v0.4.0 released on May 22nd, 2021.  For older changelogs please consult the release tag on [GitHub](https://github.com/elixir-cldr/cldr_calendars_ethiopic/tags)
+This is the changelog for ex_cldr_calendars_coptic v0.4.0 released on May 22nd, 2021.  For older changelogs please consult the release tag on [GitHub](https://github.com/elixir-cldr/cldr_calendars_coptic/tags)
 
 ### Bug Fixes
 
