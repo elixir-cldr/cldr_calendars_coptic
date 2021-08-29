@@ -44,22 +44,19 @@ defmodule Cldr.Calendars.Coptic.MixProject do
     ]
   end
 
-  # Run "mix help compile.app" to learn about applications.
   def application do
     [
       extra_applications: [:logger]
     ]
   end
 
-  # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
       {:ex_cldr_calendars, "~> 1.6"},
-      {:stream_data, "~> 0.4", only: :test},
-      {:ex_doc, "~> 0.19", only: [:release, :dev]}
+      {:stream_data, "~> 0.4", only: :test, optional: true},
+      {:ex_doc, "~> 0.19", only: [:release, :dev], optional: true, runtime: false}
     ]
   end
-
 
   def links do
     %{

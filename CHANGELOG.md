@@ -10,7 +10,7 @@ This is the changelog for ex_cldr_calendars_coptic v0.5.0 released on May 22nd, 
 
 * Fix changelog links
 
-* Fix application name which should be `:cldr_calendars_coptic`
+* Fix application name to be `:cldr_calendars_coptic`
 
 ## Cldr_Calendars_Coptic v0.4.0
 
