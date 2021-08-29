@@ -1,5 +1,17 @@
 # Changelog
 
+## Cldr_Calendars_Coptic v0.5.0
+
+This is the changelog for ex_cldr_calendars_coptic v0.5.0 released on May 22nd, 2021.  For older changelogs please consult the release tag on [GitHub](https://github.com/elixir-cldr/cldr_calendars_coptic/tags)
+
+**Note that ex_cldr_calendars is now supported on Elixir 1.10 and later**
+
+### Bug Fixes
+
+* Fix changelog links
+
+* Fix application name which should be `:cldr_calendars_coptic`
+
 ## Cldr_Calendars_Coptic v0.4.0
 
 This is the changelog for ex_cldr_calendars_coptic v0.4.0 released on May 22nd, 2021.  For older changelogs please consult the release tag on [GitHub](https://github.com/elixir-cldr/cldr_calendars_coptic/tags)
