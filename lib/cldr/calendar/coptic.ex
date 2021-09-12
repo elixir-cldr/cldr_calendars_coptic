@@ -6,44 +6,10 @@ defmodule Cldr.Calendar.Coptic do
 
   use Cldr.Calendar.Behaviour,
     epoch: ~D[0284-08-30 Cldr.Calendar.Julian],
+    months_in_ordinary_year: 13,
     cldr_calendar_type: :coptic
 
   import Cldr.Math, only: [mod: 2]
-
-	@months_in_year 13
-  @months_with_30_days 1..12
-
-  @doc """
-  Returns the number days in a given year.
-
-  """
-  @impl true
-  def days_in_year(year) do
-    if leap_year?(year), do: 366, else: 365
-  end
-
-  @doc """
-  Returns the number of months in a given `year`.
-  """
-  @impl true
-  def months_in_year(_year) do
-    @months_in_year
-  end
-
-  @doc """
-  Returns how many days there are in the given year-month.
-
-  """
-  @spec days_in_month(year, month) :: 29..31
-  @impl true
-
-  def days_in_month(year, 13) do
-    if leap_year?(year), do: 6, else: 5
-  end
-
-  def days_in_month(_year, month) when month in @months_with_30_days do
-    30
-  end
 
   @doc """
   Returns if the given year is a leap year.
