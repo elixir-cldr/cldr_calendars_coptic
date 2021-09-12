@@ -14,46 +14,6 @@ defmodule Cldr.Calendar.Coptic do
   @months_with_30_days 1..12
 
   @doc """
-  Determines if the date given is valid according to
-  this calendar.
-
-  """
-  @impl true
-  def valid_date?(_year, month, day) when month in @months_with_30_days and day in 1..30 do
-    true
-  end
-
-  def valid_date?(year, 13, 6) do
-    if leap_year?(year), do: true, else: false
-  end
-
-  def valid_date?(_year, 13, day) when day in 1..5 do
-    true
-  end
-
-  def valid_date?(_year, _month, _day) do
-    false
-  end
-
-  @doc """
-  Calculates the year and era from the given `year`.
-  The ISO calendar has two eras: the current era which
-  starts in year 1 and is defined as era "1". And a
-  second era for those years less than 1 defined as
-  era "0".
-
-  """
-  @spec year_of_era(year) :: {year, era :: 0..1}
-  @impl true
-  def year_of_era(year) when year > 0 do
-    {year, 1}
-  end
-
-  def year_of_era(year) when year < 0 do
-    {abs(year), 0}
-  end
-
-  @doc """
   Returns the number days in a given year.
 
   """
