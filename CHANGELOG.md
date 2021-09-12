@@ -1,5 +1,15 @@
 # Changelog
 
+## Cldr_Calendars_Coptic v1.0.0
+
+This is the changelog for ex_cldr_calendars_coptic v1.0.0 released on _______.  For older changelogs please consult the release tag on [GitHub](https://github.com/elixir-cldr/cldr_calendars_coptic/tags)
+
+**Note that ex_cldr_calendars is now supported on Elixir 1.10 and later**
+
+### Enhancements
+
+* Now based upon the template calendar in `Cldr.Calendar.Behaviour`
+
 ## Cldr_Calendars_Coptic v0.5.0
 
 This is the changelog for ex_cldr_calendars_coptic v0.5.0 released on May 22nd, 2021.  For older changelogs please consult the release tag on [GitHub](https://github.com/elixir-cldr/cldr_calendars_coptic/tags)
