@@ -5,7 +5,7 @@ defmodule Cldr.Calendar.Coptic do
   """
 
   use Cldr.Calendar.Behaviour,
-    epoch: ~D[0284-08-30 Cldr.Calendar.Julian],
+    epoch: ~D[0284-08-29 Cldr.Calendar.Julian],
     months_in_ordinary_year: 13,
     cldr_calendar_type: :coptic
 
@@ -15,7 +15,7 @@ defmodule Cldr.Calendar.Coptic do
   Returns if the given year is a leap year.
 
   """
-  @spec leap_year?(year) :: boolean()
+  @spec leap_year?(Calendar.year()) :: boolean()
   @impl true
   def leap_year?(year) do
     mod(year, 4) == 3
@@ -27,8 +27,7 @@ defmodule Cldr.Calendar.Coptic do
 
   """
   def date_to_iso_days(year, month, day) do
-    epoch() - 1 + 365 * (year - 1) + :math.floor(year / 4) + 30 * (month - 1) + day
-    |> trunc
+    epoch() + 365 * (year - 1) + floor(year / 4) + 30 * (month - 1) + day - 1
   end
 
   @doc """
@@ -37,11 +36,11 @@ defmodule Cldr.Calendar.Coptic do
 
   """
   def date_from_iso_days(iso_days) do
-    year = :math.floor((4 * (iso_days - epoch()) + 1463) / 1461)
-    month = :math.floor((iso_days - date_to_iso_days(year, 1, 1)) / 30) + 1
-    day = iso_days + 1 - date_to_iso_days(year, month, 1)
+    year = floor((4 * (iso_days - epoch()) + 1463) / 1461)
+    month = floor((iso_days - date_to_iso_days(year, 1, 1)) / 30) + 1
+    day = iso_days - date_to_iso_days(year, month, 1) + 1
 
-    {trunc(year), trunc(month), trunc(day)}
+    {year, month, day}
   end
 
 end
