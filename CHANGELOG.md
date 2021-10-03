@@ -1,10 +1,14 @@
 # Changelog
 
-## Cldr_Calendars_Coptic v1.0.0
+## Cldr_Calendars_Coptic v1.0.0-rc.0
 
-This is the changelog for ex_cldr_calendars_coptic v1.0.0 released on _______.  For older changelogs please consult the release tag on [GitHub](https://github.com/elixir-cldr/cldr_calendars_coptic/tags)
+This is the changelog for ex_cldr_calendars_coptic v1.0.0-rc.0 released on October 3rd.  For older changelogs please consult the release tag on [GitHub](https://github.com/elixir-cldr/cldr_calendars_coptic/tags)
 
 **Note that ex_cldr_calendars is now supported on Elixir 1.10 and later**
+
+### Bug fixes
+
+* Fix `day_of_week/3`. Thanks to @NickNeck for the report. Closes #3.
 
 ### Enhancements
 

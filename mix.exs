@@ -52,8 +52,7 @@ defmodule Cldr.Calendars.Coptic.MixProject do
 
   defp deps do
     [
-      # {:ex_cldr_calendars, "~> 1.17"},
-      {:ex_cldr_calendars, path: "../cldr_calendars"},
+      {:ex_cldr_calendars, "~> 1.17-rc"},
       {:stream_data, "~> 0.4", only: :test, optional: true},
       {:ex_doc, "~> 0.19", only: [:release, :dev], optional: true, runtime: false}
     ]
