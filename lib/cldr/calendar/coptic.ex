@@ -73,13 +73,39 @@ defmodule Cldr.Calendar.Coptic do
 
   """
   @spec year_of_era(year) :: {year, era :: 0..1}
-  @impl true
   def year_of_era(year) when year > 0 do
     {year, 1}
   end
 
   def year_of_era(year) when year < 0 do
     {abs(year), 0}
+  end
+
+  @impl true
+  def year_of_era(year, _month, _day) do
+    year_of_era(year)
+  end
+
+  @impl true
+  def calendar_year(year, _month, _day) do
+    year
+  end
+
+  @impl true
+  def cyclic_year(year, _month, _day) do
+    year
+  end
+
+  @impl true
+  def extended_year(year, _month, _day) do
+    year
+  end
+
+  @impl true
+  def related_gregorian_year(year, month, day) do
+    date_to_iso_days(year, month, day)
+    |> Calendar.ISO.date_from_iso_days()
+    |> Map.get(:year)
   end
 
   @doc """
