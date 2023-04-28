@@ -23,14 +23,14 @@ defmodule Cldr.Calendars.Coptic.MixProject do
 
   def description do
     """
-    Implementation of the Coptic calendar for Elixir
+    Implementation of the Coptic calendar for Elixir.
     """
   end
 
   defp package do
     [
       maintainers: ["Kip Cole"],
-      licenses: ["Apache 2.0"],
+      licenses: ["Apache-2.0"],
       logo: "logo.png",
       links: links(),
       files: [
@@ -52,7 +52,7 @@ defmodule Cldr.Calendars.Coptic.MixProject do
 
   defp deps do
     [
-      {:ex_cldr_calendars, "~> 1.6"},
+      {:ex_cldr_calendars, "~> 1.22"},
       {:stream_data, "~> 0.4", only: :test, optional: true},
       {:ex_doc, "~> 0.19", only: [:release, :dev], optional: true, runtime: false}
     ]
