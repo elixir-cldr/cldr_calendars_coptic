@@ -5,7 +5,7 @@ defmodule Cldr.Calendars.Coptic.MixProject do
 
   def project do
     [
-      app: :cldr_calendars_coptic,
+      app: :ex_cldr_calendars_coptic,
       version: @version,
       elixir: "~> 1.11",
       start_permanent: Mix.env() == :prod,
