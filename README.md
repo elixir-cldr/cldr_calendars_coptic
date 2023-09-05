@@ -58,14 +58,14 @@ This library is part of the [CLDR](https://cldr.unicode.org)-based libraries for
 
 ## Installation
 
-The package can be installed by adding `cldr_calendars_coptic` to your list of dependencies in `mix.exs`:
+The package can be installed by adding `ex_cldr_calendars_coptic` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
   [
-    {:cldr_calendars_coptic, "~> 0.1.0"}
+    {:ex_cldr_calendars_coptic, "~> 1.0"}
   ]
 end
 ```
-Documentation can be found at [https://hexdocs.pm/cldr_calendars_coptic](https://hexdocs.pm/cldr_calendars_coptic).
+Documentation can be found at [https://hexdocs.pm/ex_cldr_calendars_coptic](https://hexdocs.pm/ex_cldr_calendars_coptic).
 
