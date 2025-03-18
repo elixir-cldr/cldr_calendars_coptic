@@ -483,6 +483,20 @@ defmodule Cldr.Calendar.Coptic do
   @impl Calendar
   defdelegate time_to_day_fraction(hour, minute, second, microsecond), to: Calendar.ISO
 
+  if Code.ensure_loaded?(Calendar.ISO) && function_exported?(Calendar.ISO, :shift_date, 4) do
+    @doc false
+    @impl Calendar
+    defdelegate shift_date(year, month, day, duration), to: Calendar.ISO
+
+    @doc false
+    @impl Calendar
+    defdelegate shift_time(hour, minute, second, microsecond, duration), to: Calendar.ISO
+
+    @doc false
+    @impl Calendar
+    defdelegate shift_naive_datetime(year, month, day, hour, minute, second, microsecond, duration), to: Calendar.ISO
+  end
+
   @doc false
   @impl Calendar
   defdelegate date_to_string(year, month, day), to: Calendar.ISO

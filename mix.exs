@@ -1,7 +1,7 @@
 defmodule Cldr.Calendars.Coptic.MixProject do
   use Mix.Project
 
-  @version "1.0.1"
+  @version "1.0.2"
 
   def project do
     [
@@ -53,7 +53,7 @@ defmodule Cldr.Calendars.Coptic.MixProject do
   defp deps do
     [
       {:ex_cldr_calendars, "~> 1.22"},
-      {:stream_data, "~> 0.4", only: :test, optional: true},
+      {:stream_data, "~> 1.0", only: :test, optional: true},
       {:ex_doc, "~> 0.19", only: [:release, :dev], optional: true, runtime: false}
     ]
   end

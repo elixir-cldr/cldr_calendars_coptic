@@ -1,5 +1,15 @@
 # Changelog
 
+**Note that ex_cldr_calendars and addon calendars are now supported on Elixir 1.12 and later**
+
+## Cldr_Calendars_Coptic v1.0.2
+
+This is the changelog for ex_cldr_calendars_coptic v1.0.2 released on September March 19th, 2025.  For older changelogs please consult the release tag on [GitHub](https://github.com/elixir-cldr/cldr_calendars_coptic/tags)
+
+### Bug Fixes
+
+* Fix calendar callbacks to include the `shift_*` functions when available in the host Elixir version.
+
 ## Cldr_Calendars_Coptic v1.0.1
 
 This is the changelog for ex_cldr_calendars_coptic v1.0.1 released on September 6th, 2023.  For older changelogs please consult the release tag on [GitHub](https://github.com/elixir-cldr/cldr_calendars_coptic/tags)
